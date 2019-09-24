@@ -5,8 +5,6 @@
     </div>
     <div class="card-body">
         <div class="row">
-            <!--details here-->
-
             <table class="table table-striped" *ngIf="products && products.length">
                 <tbody>
                     <tr>
@@ -38,8 +36,8 @@
         </div>
         <div class="row">
             <div class="footer">
-                <button class="btn btn-info" [routerLink]="['/products']"><i class="fa fa-arrow-left"></i> Back
-                    router</button>
+                <!--<button class="btn btn-info" [routerLink]="['/products']"><i class="fa fa-arrow-left"></i> Back
+                    router</button>-->
                 &nbsp; &nbsp;
                 <button class="btn btn-success" (click)="backRouter();"><i class="fa fa-arrow-left"></i> Back</button>
             </div>
