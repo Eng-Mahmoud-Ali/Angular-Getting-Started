@@ -1,0 +1,43 @@
+<div class="card">
+    <div class="card-header">
+        <h4>{{pageTitle}}</h4>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class='col-md-6'><input type="text" class="form-control" [(ngModel)]='filterByText' placeholder="Search by product name ..."></div>
+            <div class='col-md-6'>
+                <span>Filtered by: {{filterByText}}</span>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<button class="btn btn-primary"
+    (click)='toogleImage()'>{{ isShowImage == true ? "Hide images" : "Show images"}}</button>
+<hr>
+<div class="table-reponsive">
+    <table class="table table-striped" *ngIf="products && products.length">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Image</th>
+                <th scope="col">Product</th>
+                <th scope="col">Code</th>
+                <th scope="col">Price</th>
+                <th scope="col">5 start rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let product of filteredProducts'>
+                <td>{{product.productId}}</td>
+                <td><img *ngIf='isShowImage' src={{product.productImage}} title={{product.productName}}
+                        [style.width.px]=imageWidth height={{imageHeight}} /></td>
+                <td><a style="cursor: pointer !important;" [routerLink]="['/products',product.productId]">{{product.productName | uppercase }}</a></td>
+                <td>{{product.productCode | ConvertToSpace : "-"}}</td>
+                <td>{{product.productPrice | currency:'USD':'symbol':'1.1-1' }}</td>
+                <td><pm-star (rateClickEvent)='productClicked($event);' [rating]='product.productRate'></pm-star></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

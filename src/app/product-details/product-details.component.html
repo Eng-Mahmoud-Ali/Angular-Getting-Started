@@ -1,0 +1,48 @@
+<br>
+<div class="card">
+    <div class="card-header">
+        <h4>{{productDetailsTitle}}</h4>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <!--details here-->
+
+            <table class="table table-striped" *ngIf="products && products.length">
+                <tbody>
+                    <tr>
+                        <td width="40%">Id</td>
+                        <td>{{products[0].productId}}</td>
+                    </tr>
+                    <tr>
+                        <td width="40%">Image</td>
+                        <td>{{products[0].productId}}</td>
+                    </tr>
+                    <tr>
+                        <td width="40%">Product</td>
+                        <td>{{products[0].productId}}</td>
+                    </tr>
+                    <tr>
+                        <td width="40%">Code</td>
+                        <td>{{products[0].productId}}</td>
+                    </tr>
+                    <tr>
+                        <td width="40%">Price</td>
+                        <td>{{products[0].productId}}</td>
+                    </tr>
+                    <tr>
+                        <td width="40%">5 start rating</td>
+                        <td>{{products[0].productId}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row">
+            <div class="footer">
+                <button class="btn btn-info" [routerLink]="['/products']"><i class="fa fa-arrow-left"></i> Back
+                    router</button>
+                &nbsp; &nbsp;
+                <button class="btn btn-success" (click)="backRouter();"><i class="fa fa-arrow-left"></i> Back</button>
+            </div>
+        </div>
+    </div>
+</div>

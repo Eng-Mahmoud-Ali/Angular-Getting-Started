@@ -1,0 +1,26 @@
+[
+    {
+        "productId": 1,
+        "productName": "Mobile",
+        "productPrice": 200.75,
+        "productImage": "assets/images/Mahmoud.jpg",
+        "productRate": 4,
+        "productCode": "mob-352"
+    },
+    {
+        "productId": 2,
+        "productName": "Laptop",
+        "productPrice": 300.25,
+        "productImage": "assets/images/Mahmoud.jpg",
+        "productRate": 3.5,
+        "productCode": "lap-454"
+    },
+    {
+        "productId": 3,
+        "productName": "Smart TV",
+        "productPrice": 350.15,
+        "productImage": "assets/images/Mahmoud.jpg",
+        "productRate": 5,
+        "productCode": "TV-2454"
+    }
+]
