@@ -4,7 +4,8 @@
     </div>
     <div class="card-body">
         <div class="row">
-            <div class='col-md-6'><input type="text" class="form-control" [(ngModel)]='filterByText' placeholder="Search by product name ..."></div>
+            <div class='col-md-6'><input type="text" class="form-control" [(ngModel)]='filterByText'
+                    placeholder="Search by product name ..."></div>
             <div class='col-md-6'>
                 <span>Filtered by: {{filterByText}}</span>
             </div>
@@ -32,12 +33,14 @@
                 <td>{{product.productId}}</td>
                 <td><img *ngIf='isShowImage' src={{product.productImage}} title={{product.productName}}
                         [style.width.px]=imageWidth height={{imageHeight}} /></td>
-                <td><a style="cursor: pointer !important;" [routerLink]="['/products',product.productId]">{{product.productName | uppercase }}</a></td>
+                <td><a style="cursor: pointer !important;"
+                        [routerLink]="['/products',product.productId]">{{product.productName | uppercase }}</a></td>
                 <td>{{product.productCode | ConvertToSpace : "-"}}</td>
                 <td>{{product.productPrice | currency:'USD':'symbol':'1.1-1' }}</td>
-                <td><pm-star (rateClickEvent)='productClicked($event);' [rating]='product.productRate'></pm-star></td>
+                <td>
+                    <pm-star (rateClickEvent)='productClicked($event);' [rating]='product.productRate'></pm-star>
+                </td>
             </tr>
         </tbody>
     </table>
 </div>
-

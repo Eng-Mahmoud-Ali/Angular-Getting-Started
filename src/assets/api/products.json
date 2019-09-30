@@ -12,7 +12,7 @@
         "productName": "Laptop",
         "productPrice": 300.25,
         "productImage": "assets/images/Mahmoud.jpg",
-        "productRate": 3.5,
+        "productRate": 3,
         "productCode": "lap-454"
     },
     {
@@ -20,7 +20,7 @@
         "productName": "Smart TV",
         "productPrice": 350.15,
         "productImage": "assets/images/Mahmoud.jpg",
-        "productRate": 5,
+        "productRate": 1.5,
         "productCode": "TV-2454"
     }
 ]

@@ -8,11 +8,11 @@ export class Customer {
       public phone='',
       public notification= '',
       public rating = null,
-      /*public addressType = 'home',
+      public addressType = 'home',
       public street1?: string,
       public street2?: string,
       public city?: string,
       public state = '',
-      public zip?: string*/
+      public zip?: string
       ) { }
   }
