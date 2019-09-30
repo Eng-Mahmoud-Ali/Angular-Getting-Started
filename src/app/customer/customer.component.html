@@ -1,0 +1,143 @@
+<br>
+<div class="card">
+</div>
+<div class="card-header">Customer info</div>
+<br>
+<form [formGroup]='customerForm' (ngSubmit)='save()'>
+    <div class="form-group row">
+        <label for="txtFirstName" class="col-sm-2 col-form-label">First name</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="txtFirstName" [ngClass]="{'is-invalid': (customerForm.get('firstName').touched
+             || customerForm.get('firstName').dirty) && !customerForm.get('firstName').valid}"
+                formControlName='firstName'>
+            <span class="invalid-feedback">
+                <span *ngIf="customerForm.get('firstName').errors?.required">
+                    Please enter your first name.
+                </span>
+                <span *ngIf="customerForm.get('firstName').errors?.minlength">
+                    The first name must be longer than 3 characters.
+                </span>
+            </span>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="txtLastName" class="col-sm-2 col-form-label">Last name</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="txtLastName" [ngClass]="{'is-invalid': (customerForm.get('lastName').touched || 
+                customerForm.get('lastName').dirty) && !customerForm.get('lastName').valid}"
+                formControlName='lastName'>
+            <span class="invalid-feedback">
+                <span *ngIf="customerForm.get('lastName').errors?.required">
+                    Please enter your last name.
+                </span>
+                <span *ngIf="customerForm.get('lastName').errors?.minlength">
+                    The last name must be longer than 3 characters.
+                </span>
+            </span>
+        </div>
+    </div>
+
+    <div formGroupName="emailGroup">
+        <div class="form-group row">
+            <label for="txtEmail" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="txtEmail" formControlName='email' [ngClass]="{'is-invalid': (customerForm.get('emailGroup').errors ||    
+                customerForm.get('emailGroup.email').touched || 
+            customerForm.get('emailGroup.email').dirty) && !customerForm.get('emailGroup.email').valid}">
+                <span class="invalid-feedback">
+                    <span *ngIf="customerForm.get('emailGroup.email').errors?.required">
+                        Please enter your email address.
+                    </span>
+                    <span *ngIf="customerForm.get('emailGroup.email').errors?.email">
+                        Please enter a valid email address.
+                    </span>
+                </span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="txtConfirmEmail" class="col-sm-2 col-form-label">Confirm Email</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="txtConfirmEmail" formControlName='confirmEmail'
+                    [ngClass]="{'is-invalid': (customerForm.get('emailGroup').errors) ||      
+                ((customerForm.get('emailGroup.confirmEmail').touched || 
+                customerForm.get('emailGroup.confirmEmail').dirty) && !customerForm.get('emailGroup.confirmEmail').valid)}">
+
+                <span class="invalid-feedback">
+                    <span *ngIf="customerForm.get('emailGroup').errors?.match">
+                        The confirmation does not match the email address.
+                    </span>
+                </span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form-group row">
+        <label for="txtMobile" class="col-sm-2 col-form-label">Mobile</label>
+        <div class="col-sm-10">
+            <input type="tel" class="form-control" id="txtMobile" formControlName="phone"
+                [ngClass]="{'is-invalid': !customerForm.get('phone').valid }" />
+            <span class="invalid-feedback">
+                <span *ngIf="customerForm.get('phone').errors?.required">
+                    Please enter your phone number.
+                </span>
+            </span>
+        </div>
+    </div>
+
+    <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="ratingId">Rating</label>
+        <div class="col-md-10">
+            <input class="form-control" id="ratingId" type="number" formControlName="rating" [ngClass]="{'is-invalid': (customerForm.get('rating').touched || 
+                                                 customerForm.get('rating').dirty) && 
+                                                 !customerForm.get('rating').valid }" />
+            <span class="invalid-feedback">
+                <span *ngIf="customerForm.get('rating').errors?.range">
+                    Please rate your experience from 1 to 5.
+                </span>
+            </span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-2">Notification</div>
+        <div class="col-sm-8">
+            <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-default" for="rbEmail">
+                    <input type="radio" id="rbEmail" name="notification" (click)='setNotification("email");'
+                        value="email" formControlName='notification' />
+                    Email
+                </label>
+                <label class="btn btn-default" for="rbSMS">
+                    <input type="radio" id="rbSMS" name="notification" (click)='setNotification(sms);' value="sms"
+                        formControlName='notification' /> SMS
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <input type="checkbox" class="form-check-input" id="chkCatalog" formControlName='sendCatalog'>
+        <label for="chkCatalog" class="col-sm-12 col-form-label">Send catalog</label>
+    </div>
+    <hr>
+
+    <button type="submit" [disabled]='!customerForm.valid' class="btn btn-success"><span class="fa fa-save"></span>
+        Save</button>
+    <button type="button" class="btn btn-default" (click)="testData();">Test data</button>
+</form>
+
+
+<div>
+    <br>
+    <hr>
+    Dirty: {{customerForm.dirty}}
+    <hr>
+    Touched: {{customerForm.touched}}
+    <hr>
+    Valid: {{customerForm.valid}}
+    <hr>
+    Value: {{customerForm.value | json}}
+    <br>
+</div>
